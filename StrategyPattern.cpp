@@ -30,7 +30,14 @@ class cantFly: public FlyBehaviour {
          return "Can't Fly !";
       }
 };
-
+//Strategy Pattern allows us to change the particular algorithm
+//without having us to write the same code again and again
+//in every subclass that needs a particular execution algorithm
+//it also allows us to change the strategy dynamically based on some parameter
+//This turns out to be very useful during Game implementation
+//where a particular character is not able to fly, but after collecting some points
+// it is able to fly for a specific period of time, and then comes to the same
+//state in which it was there previously.
 class Animal {
    public:
       FlyBehaviour *strategy;
