@@ -54,7 +54,6 @@ class Dog: public Animal {
 		}
 };
 
-
 class Bird: public Animal{
 	public:
 		Bird() {
