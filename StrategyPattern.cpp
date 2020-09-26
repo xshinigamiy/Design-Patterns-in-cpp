@@ -11,63 +11,65 @@ using namespace std;
 
 //decouple the strategy algorithms from the actual class
 class FlyBehaviour {
-	public:
-		virtual string fly() = 0;
+   public:
+      virtual string fly() = 0;
 };
 
 //concrete classes actually implementing the needed behavior
 class flys: public FlyBehaviour {
-	public:
-		string fly() {
-			return "Flying High !";
-		}
+   public:
+      string fly() {
+         return "Flying High !";
+      }
 };
 
 //concrete classes actually implementing the needed behavior
 class cantFly: public FlyBehaviour {
-	public:
-		string fly() {
-			return "Can't Fly !";
-		}
+   public:
+      string fly() {
+         return "Can't Fly !";
+      }
 };
 
 class Animal {
-	public:
-		FlyBehaviour *strategy;
-		Animal() {
-			strategy = NULL;
-		}
-		void setstrategy(FlyBehaviour *f) {
-			delete strategy;
-			strategy = f;
-		}
-		string fly() {
-			return strategy->fly();
-		}
+   public:
+      FlyBehaviour *strategy;
+      Animal() {
+         strategy = NULL;
+      }
+      void setstrategy(FlyBehaviour *f) {
+         delete strategy;
+         strategy = f;
+      }
+      string fly() {
+         return strategy->fly();
+      }
 };
 
 
 class Dog: public Animal {
-	public:
-		Dog() {
-			strategy = new cantFly;
-		}
+   public:
+      Dog() {
+         strategy = new cantFly;
+      }
 };
+
 
 class Bird: public Animal{
-	public:
-		Bird() {
-			strategy = new flys;
-		}
+   public:
+      Bird() {
+         strategy = new flys;
+      }
 };
 
-int main() {
-	Animal *a = new Dog();
-	Animal *b = new Bird();
-	cout << "Dog: " << a->fly() << '\n';
-	cout << "Bird: " << b->fly() << '\n';
 
-	a->setstrategy(new flys());
-	cout << "Dog: " << a->fly() << '\n';
-	return 0;
+int main() {
+   Animal *a = new Dog();
+   Animal *b = new Bird();
+   cout << "Dog: " << a->fly() << '\n';
+   cout << "Bird: " << b->fly() << '\n';
+
+   a->setstrategy(new flys());
+   cout << "Dog: " << a->fly() << '\n';
+   return 0;
 }
