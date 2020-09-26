@@ -62,7 +62,6 @@ class Bird: public Animal{
 		}
 };
 
-
 int main() {
 	Animal *a = new Dog();
 	Animal *b = new Bird();
