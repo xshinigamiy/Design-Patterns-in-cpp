@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//We'regoing to implement
+//We're going to implement
 //builder design pattern
-//What it does, It basicallly separates out the complex object creation logic
+//What it does, It basicallly seperates out the complex object creation logic
 //from Client. Builder Class is responsible for creating Complex objects
-//RobotPlan is an Abstract Class that defines What/How and Actual Robot is going to look like.
 
+
+//RobotPlan is an Abstract Class that defines What/How and Actual Robot is going to look like.
 class RobotPlan {
    public:
       virtual void setRobotHead(string robotHead) = 0;
@@ -14,8 +15,7 @@ class RobotPlan {
       virtual void setRobotHands(string robotHands) = 0;
 };
 
-//Robot Class is a concrete class that Actuall implements all the menthos
-
+//Robot Class is a concrete class that Actually implements all the methods
 class Robot: public RobotPlan {
    private:
       string robotHead;
@@ -47,10 +47,10 @@ class Robot: public RobotPlan {
       }
 };
 
+
 //RobotBuilder Class is also an abstract class which
 //knows exactly what type of Robots can be built. It has to know all the 
 //Robot Types that are being built into the factory
-
 class RobotBuilder {
    public:
       virtual void buildRobotHead() = 0;
@@ -59,10 +59,9 @@ class RobotBuilder {
       virtual Robot* getRobot() = 0; 
 };
 
-//OldRobotBuilder is a concrete class that builds separate parts of the 
+
+//OldRobotBuilder is a concrete class that builds seperate parts of the 
 //actual Robot
-
-
 class OldRobotBuilder: public RobotBuilder {
    private:
       Robot *robot;
@@ -89,8 +88,6 @@ class OldRobotBuilder: public RobotBuilder {
 //And Final RobotEngineer is responsible for creating robots
 //All you need to do, is to call makeRobot() Method of RobotEngineer Class
 //It then builds the robot and stores it. 
-
-
 class RobotEngineer {
    private:
       RobotBuilder *oldRobotBuilder;
