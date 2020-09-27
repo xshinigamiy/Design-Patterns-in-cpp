@@ -69,6 +69,11 @@ class OldRobotBuilder: public RobotBuilder {
       OldRobotBuilder(){
          robot = new Robot();
       }
+      
+      OlderRobotBuilder(Robot *newRobot){
+         robot = newRobot;
+      }
+
       void buildRobotHead() {
          robot->setRobotHead("Tin Head");
       }
@@ -106,7 +111,17 @@ class RobotEngineer {
       Robot* getRobot(){
          return this->oldRobotBuilder->getRobot();
       }
+
+      Robot *getNewRobot(){
+         // return this->old
+         Robot* robot = new Robot();
+      }
 };
+
+
+//Currently, It only supports single type of Robots
+//How can we different types of Robots
+//Whenever we call RobotEngineer.getNewRobot()
 
 int main() {
    RobotBuilder *robotBuilder = new OldRobotBuilder();
