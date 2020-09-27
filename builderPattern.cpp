@@ -119,8 +119,8 @@ class RobotEngineer {
 };
 
 
-//Currently, It only supports single type of Robots
-//How can we different types of Robots
+//Currently, It only supports single type of Robot
+//How can we get different types of Robots
 //Whenever we call RobotEngineer.getNewRobot()
 
 int main() {
